@@ -1,6 +1,6 @@
 package taufiq.apps.emgas
 
-import android.app.Application
+import com.google.android.play.core.splitcompat.SplitCompatApplication
 import dagger.hilt.android.HiltAndroidApp
 
 /**
@@ -8,5 +8,5 @@ import dagger.hilt.android.HiltAndroidApp
  *
  */
 @HiltAndroidApp
-class MainApplication : Application() {
+class MainApplication : SplitCompatApplication() {
 }

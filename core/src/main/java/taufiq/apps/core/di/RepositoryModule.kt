@@ -3,7 +3,7 @@ package taufiq.apps.core.di
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
+import dagger.hilt.android.components.ApplicationComponent
 import taufiq.apps.core.data.GameRepository
 import taufiq.apps.core.domain.IGameRepository
 
@@ -12,8 +12,9 @@ import taufiq.apps.core.domain.IGameRepository
  *
  */
 @Module(includes = [RemoteModule::class, DatabaseModule::class])
-@InstallIn(SingletonComponent::class)
+@InstallIn(ApplicationComponent::class)
 abstract class RepositoryModule {
+
     @Binds
-    abstract fun provideRepository(gameRepository: GameRepository) : IGameRepository
+    abstract fun provideRepository(gameRepository: GameRepository): IGameRepository
 }

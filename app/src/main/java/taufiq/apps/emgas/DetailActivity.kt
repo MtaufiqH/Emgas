@@ -72,8 +72,10 @@ class DetailActivity : AppCompatActivity() {
     private fun setAsFavorite(currentState: Boolean?) {
         if (currentState == true) {
             binding.fabFavorite.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.ic_favorite_true))
+            Toast.makeText(this, "Set as Favorite", Toast.LENGTH_SHORT).show()
         } else
             binding.fabFavorite.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.ic_favorite))
+            Toast.makeText(this, "remove from Favorite", Toast.LENGTH_SHORT).show()
     }
 
 

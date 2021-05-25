@@ -2,10 +2,8 @@ package taufiq.apps.core.di
 
 import dagger.Binds
 import dagger.Module
-import dagger.hilt.EntryPoint
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ViewModelComponent
-import dagger.hilt.android.scopes.ViewModelScoped
+import dagger.hilt.android.components.ApplicationComponent
 import taufiq.apps.core.domain.GameInteractor
 import taufiq.apps.core.domain.GameUseCase
 
@@ -14,10 +12,9 @@ import taufiq.apps.core.domain.GameUseCase
  *
  */
 @Module
-@InstallIn(ViewModelComponent::class)
+@InstallIn(ApplicationComponent::class)
 abstract class AppModule {
 
     @Binds
-    @ViewModelScoped
     abstract fun provideUseCase(gameInteractor: GameInteractor): GameUseCase
 }

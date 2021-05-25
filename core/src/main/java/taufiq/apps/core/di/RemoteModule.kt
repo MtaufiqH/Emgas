@@ -3,7 +3,7 @@ package taufiq.apps.core.di
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
+import dagger.hilt.android.components.ApplicationComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -17,7 +17,7 @@ import javax.inject.Singleton
  *
  */
 @Module
-@InstallIn(SingletonComponent::class)
+@InstallIn(ApplicationComponent::class)
 class RemoteModule {
 
     @Singleton
@@ -34,7 +34,7 @@ class RemoteModule {
 
     @Singleton
     @Provides
-    fun providesApiService(client: OkHttpClient) : ApiService  =
+    fun providesApiService(client: OkHttpClient): ApiService =
         Retrofit.Builder()
             .baseUrl("https://api.rawg.io/api/")
             .client(client)

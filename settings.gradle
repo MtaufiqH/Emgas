@@ -1,4 +1,4 @@
-include ':FavGame'
+include ':favorites'
 include ':core'
 include ':app'
 rootProject.name = "Emgas"

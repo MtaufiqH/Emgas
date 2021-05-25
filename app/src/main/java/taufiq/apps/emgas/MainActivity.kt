@@ -1,8 +1,9 @@
 package taufiq.apps.emgas
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.viewbinding.library.activity.viewBinding
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
@@ -15,6 +16,7 @@ class MainActivity : AppCompatActivity() {
 
     private val binding by viewBinding<ActivityMainBinding>()
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         moveFragment(GameFragment())
@@ -27,14 +29,16 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.menu_favorites -> {
-                    try {
-                        val favoriteFragment =
-                            Class.forName("taufiq.apps.emgas.favgame.FavoriteFragment")
-                                .newInstance() as Fragment
-                        moveFragment(favoriteFragment)
-                    } catch (e: Exception) {
-                        Toast.makeText(this, "Something wrong!", Toast.LENGTH_SHORT).show()
-                    }
+
+                    val fragment  = Class.forName("taufiq.apps.emgas.favgame.FavoriteFragment").newInstance() as Fragment
+                    moveFragment(fragment)
+
+//                    startActivity(
+//                        Intent(
+//                            this,
+//                            Class.forName("taufiq.apps.emgas.favgame.FavoriteActivity")
+//                        )
+//                    )
                     true
                 }
 

@@ -5,8 +5,8 @@ import androidx.room.Room
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ApplicationComponent
 import dagger.hilt.android.qualifiers.ApplicationContext
-import dagger.hilt.components.SingletonComponent
 import taufiq.apps.core.data.source.local.db.DaoGames
 import taufiq.apps.core.data.source.local.db.DatabaseGame
 import javax.inject.Singleton
@@ -17,14 +17,14 @@ import javax.inject.Singleton
  */
 
 @Module
-@InstallIn(SingletonComponent::class)
+@InstallIn(ApplicationComponent::class)
 class DatabaseModule {
     @Singleton
     @Provides
-    fun provideDatabase(@ApplicationContext context: Context) : DatabaseGame  =
-        Room.databaseBuilder(context,DatabaseGame::class.java,"games.db").build()
+    fun provideDatabase(@ApplicationContext context: Context): DatabaseGame =
+        Room.databaseBuilder(context, DatabaseGame::class.java, "games.db").build()
 
     @Singleton
     @Provides
-    fun providesDao(db : DatabaseGame) : DaoGames = db.gameDao()
+    fun providesDao(db: DatabaseGame): DaoGames = db.gameDao()
 }

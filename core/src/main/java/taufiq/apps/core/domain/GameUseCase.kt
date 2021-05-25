@@ -12,5 +12,4 @@ interface GameUseCase {
     fun getDetailGame(id: String, key: String) : Flow<Resource<Game>>
     fun getFavoriteGame(): Flow<List<Game>>
     fun updateFavorite(game: Game, state: Boolean)
-
 }
