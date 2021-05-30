@@ -9,5 +9,4 @@ import com.google.gson.annotations.SerializedName
 data class ListGames(
     @field:SerializedName("results")
     val results: List<GamesResponseResult>
-) {
-}
+)

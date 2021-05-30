@@ -41,7 +41,9 @@ dependencies {
     kapt "androidx.hilt:hilt-compiler:$hilt_jetpack_version"
     kaptAndroidTest "androidx.hilt:hilt-compiler:$hilt_jetpack_version"
 
-    implementation "com.ismaeldivita.chipnavigation:chip-navigation-bar:$chip_bar_version"
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.1'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.1'
+
     implementation "com.github.yogacp:android-viewbinding:$binding_delegate_version"
 
 }

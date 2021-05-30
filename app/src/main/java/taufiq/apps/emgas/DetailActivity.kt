@@ -28,14 +28,14 @@ class DetailActivity : AppCompatActivity() {
         supportActionBar?.title = dataGame!!.name
     }
 
-    private fun observeViewModel(id: String){
+    private fun observeViewModel(id: String) {
         detailModels.getDetailGame(id).observe(this) {
-            when(it){
+            when (it) {
                 is Resource.Loading -> {
                     binding.progressBar.visibility = View.VISIBLE
                 }
 
-                is  Resource.Success -> {
+                is Resource.Success -> {
                     binding.progressBar.visibility = View.GONE
                     setupDetail(it.data)
                 }
@@ -61,7 +61,7 @@ class DetailActivity : AppCompatActivity() {
         //setting favorite button
         var currentState = data?.isFavorite
         setAsFavorite(currentState)
-        binding.fabFavorite.setOnClickListener{
+        binding.fabFavorite.setOnClickListener {
             currentState = !currentState!!
             detailModels.setFavorite(data!!, currentState!!)
             setAsFavorite(currentState)
@@ -71,11 +71,21 @@ class DetailActivity : AppCompatActivity() {
 
     private fun setAsFavorite(currentState: Boolean?) {
         if (currentState == true) {
-            binding.fabFavorite.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.ic_favorite_true))
-            Toast.makeText(this, "Set as Favorite", Toast.LENGTH_SHORT).show()
+            binding.fabFavorite.setImageDrawable(
+                ContextCompat.getDrawable(
+                    this,
+                    R.drawable.ic_favorite_true
+                )
+            )
+
         } else
-            binding.fabFavorite.setImageDrawable(ContextCompat.getDrawable(this,R.drawable.ic_favorite))
-            Toast.makeText(this, "remove from Favorite", Toast.LENGTH_SHORT).show()
+            binding.fabFavorite.setImageDrawable(
+                ContextCompat.getDrawable(
+                    this,
+                    R.drawable.ic_favorite
+                )
+            )
+
     }
 
 

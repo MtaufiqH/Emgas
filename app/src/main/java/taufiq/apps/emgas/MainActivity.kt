@@ -1,7 +1,5 @@
 package taufiq.apps.emgas
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.viewbinding.library.activity.viewBinding
 import androidx.appcompat.app.AppCompatActivity
@@ -29,19 +27,12 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.menu_favorites -> {
-
-                    val fragment  = Class.forName("taufiq.apps.emgas.favgame.FavoriteFragment").newInstance() as Fragment
+                    val fragmentName = "taufiq.apps.emgas.favgame.FavoriteFragment"
+                    val fragment = Class.forName(fragmentName)
+                        .newInstance() as Fragment
                     moveFragment(fragment)
-
-//                    startActivity(
-//                        Intent(
-//                            this,
-//                            Class.forName("taufiq.apps.emgas.favgame.FavoriteActivity")
-//                        )
-//                    )
                     true
                 }
-
                 else -> moveFragment(GameFragment())
             }
         }
