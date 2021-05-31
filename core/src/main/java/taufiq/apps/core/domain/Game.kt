@@ -1,7 +1,6 @@
 package taufiq.apps.core.domain
 
 import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
 
 /**
  * Created By Taufiq on 5/17/2021.
